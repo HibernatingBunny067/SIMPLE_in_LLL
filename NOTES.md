@@ -16,4 +16,38 @@ $$
 # What is Harlow-Welch (MAC) Staggered Grid ?
 - The scalar quantities are stored at the cell center $(i,j)$
 - The four faces (in 2 dimensional case) store the vector quantities at the faces $(i±\frac{1}{2},j)$ 
+
+
+# Review of the FVM method and discretisation schemes.
+- The general family of equations concerned here are the incompressible Navier STokes equations which are variants of the general convection-diffusion-source transport equations of the form
+$
+\begin{aligned}
+\nabla (\rho u \phi) = \nabla (\Tau \nabla \phi) + S_{\phi}
+\end{aligned}
+$
+- where the left hand side is the convective flux associated with bulk fluid motion (velocity)
+- the right hand side is made up of diffusion component inside the nabla operator and the source term
+- This general equation is integrated over a small volume in FVM and converted to area integrals using the *Gauss's DIvergenece Theorem* yielding the equations which can be discretised and solved numerically 
+- The discretised equation takes this form
+
+$
+\begin{aligned}
+[(\rho u \phi)_e - (\rho u \phi)_w]\Delta y + [(\rho v \phi)_n - (\rho v \phi))_s]\Delta x = [(\Gamma \frac{\partial{\phi}}{\partial{x}})_e -  (\Gamma \frac{\partial{\phi}}{\partial{x}})_w]\Delta y + [(\Gamma \frac{\partial{\phi}}{\partial{x}})_n -  (\Gamma \frac{\partial{\phi}}{\partial{x}})_s]\Delta x + S_{\phi}V
+\end{aligned}
+$
+
+- to keep the algebra clean and simple, some additional terms are defined, namely $\text{Convective Flux F}: (\rho u)_f \Delta x$   and 
+- $ \text{Diffusive Conductance D }: \frac{\Gamma_f \Delta x}{\delta x}$ 
+- further the gradients on the right hand side are discretised to difference between nodal values represented by capital letters, finally we acheive the equation
+
+
+### NOTE: the other notes on physics and derivations were written by hand and may be attached as pdf in this project, after this all the notes are on implementation and codingin c++.
+
+
+# ".hpp" files 
+- Unlike dynamically typed langauges like Python and Javascript, c++ is a statically typed language, so functions have to defined with strict input and output datatype before they are used.
+- hpp files are like blueprints of the code which we write in the .cpp file.
+- they share a common name
 - 
+
+
