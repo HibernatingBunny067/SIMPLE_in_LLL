@@ -4,8 +4,6 @@
 #include <cmath>
 #include <cassert>
 #include <algorithm>
-#include <iostream>
-
 
 class Field2D{
     // A generic 2D matrix buffer class
