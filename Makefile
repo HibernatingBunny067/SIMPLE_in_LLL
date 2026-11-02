@@ -1,3 +1,5 @@
+## AI WAS USED TO WRITE THIS FILE !!
+
 # Compiler & Flags
 CXX          := clang++
 CXXFLAGS     := -std=c++20 -O3 -Wall -Wextra -Wpedantic -Iinclude
